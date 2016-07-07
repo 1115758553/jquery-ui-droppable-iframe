@@ -17,7 +17,9 @@ $.ui.ddmanager.prepareOffsets = function(t, event) {
     var m = $.ui.ddmanager.droppables[t.options.scope] || [];
 
     for (i = 0; i < m.length; i++) {
-
+        if(m[i].offset == undefined){
+            continue;
+        }
         //Iframe fixes        
         if ((doc = m[i].document[0]) !== document) {
             var iframe = $((doc.defaultView || doc.parentWindow).frameElement);
